@@ -1,6 +1,31 @@
 ---
-
+import AfterEffectsTemplate from '../components/AfterEffectsTemplate.astro'
+const afterEffectsImage = 'ae-screenshot.png'
+const microToolbarUrl = 'https://octopodo.github.io/kt-micro-toolbar/'
+const macroToolbarUrl = 'https://octopodo.github.io/kt-macro-toolbar/'
+const maxWidth = '80%'
+import '../styles/global.css'
 ---
+
+<script>
+const afterEffctsLayout =  document.getElementById('after-effects-layout')
+const image = document.getElementById('after-effects-image')
+const microToolbar = document.querySelector('#micro-toolbar')
+const macroToolbar = document.querySelector('#macro-toolbar')
+
+const toolbars = Array.from(document.querySelectorAll('iframe'))
+
+Promise.all(toolbars.map(iframe => new Promise(resolve => iframe.onload = resolve)))
+  .then(() => {
+    setTimeout(() => {
+      afterEffctsLayout.classList.add('blur-in')
+      image.classList.add('blur-in')
+      microToolbar.classList.add('fade-in', 'neon-flash')
+      macroToolbar.classList.add('fade-in', 'neon-flash')
+    }, 1000)
+  }
+);
+</script>
 
 <html lang="en">
 	<head>
@@ -11,6 +36,97 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+
+		<img src={afterEffectsImage}  id="after-effects-image">
+    <AfterEffectsTemplate>
+
+      <iframe slot="micro-toolbar" src={microToolbarUrl} id="micro-toolbar" class="toolbar micro-toolbar"></iframe>
+      <iframe slot="macro-toolbar" src={macroToolbarUrl} id="macro-toolbar" class="toolbar macro-toolbar"></iframe>
+    </AfterEffectsTemplate>
 	</body>
 </html>
+
+
+<style define:vars={{maxWidth}}>
+
+body {
+  background-color: var(--dark);
+}
+iframe{
+  overflow: hidden;
+}
+
+#after-effects-image {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  box-shadow: 4px 5px 10px  rgba(0,0,0,0.2);
+  width: var(--maxWidth);
+}
+
+.micro-toolbar {
+  height: 50px;
+  top: 118px;
+}
+
+.macro-toolbar {
+  height: 130px;
+  top: 78%;
+  border: none;
+}
+.toolbar {
+  display: block;
+
+  width: 100%;
+  border: none;
+  box-shadow: 4px 5px 10px  rgba(0,0,0,0.2);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.blur-in {
+  animation: blur 0.5s ease-in-out forwards;
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+
+.neon-flash {
+  /* box-shadow: 0px 0px 10px 5px rgba(232, 140, 11, 0.3); */
+
+}
+
+@-webkit-keyframes blur {
+  from {
+    -webkit-filter: blur(0px) brightness(100%); 
+  }
+  to {
+    -webkit-filter: blur(5px) brightness(200%); 
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes neon-flash {
+  0% {
+
+  }
+  25% {
+    box-shadow: 0px 0px 10px 5px rgba(232, 140, 11, 0.9);
+  }
+  100% {
+    box-shadow: 0px 0px 10px 5px rgba(232, 140, 11, 0.0);
+  }
+}
+
+</style>

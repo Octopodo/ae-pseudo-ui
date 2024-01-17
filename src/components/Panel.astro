@@ -1,0 +1,31 @@
+---
+import {PiListFill} 
+from "react-icons/pi";
+const {title} = Astro.props;
+---
+
+
+<div class="panel">
+  <div class="icon-title title">
+    <p>{title}</p>
+    <PiListFill />
+  </div>
+  <div class="content">
+    <slot></slot>
+  </div>
+</div>
+
+
+<style>
+.panel {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 25px 1fr;
+  background-color: var(--dark);
+
+}
+
+
+
+</style>

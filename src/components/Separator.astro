@@ -1,0 +1,26 @@
+---
+
+interface Props {
+  horizontal?: boolean;
+}
+
+let { horizontal = false} = Astro.props;
+---
+
+<div class={ !horizontal ? 'vertical-line' : 'horizontal-line'}></div>
+
+<style>
+.vertical-line {
+  width: 1px;
+  height: 100%;
+  background-color: #e5e5e5;
+  /* margin: 0 10px; */
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 10px 0;
+}
+</style>

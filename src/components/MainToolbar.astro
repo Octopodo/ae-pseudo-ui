@@ -1,0 +1,101 @@
+---
+import Separator from "./Separator.astro";
+import { FaStamp , FaHome, FaHandPaper, FaArrowsAlt, FaAnchor ,FaPenNib, FaPaintBrush    } 
+from "react-icons/fa";
+import { FaPersonWalkingDashedLineArrowRight  } 
+from "react-icons/fa6";
+import { BsCursorFill, BsFillEraserFill } 
+from "react-icons/bs";
+import { IoIosSearch, IoMdBrush   } 
+from "react-icons/io";
+import { GiMoonOrbit, GiAnticlockwiseRotation, GiCompanionCube   } 
+from "react-icons/gi";
+import { PiRectangleDuotone,PiTextTBold, PiListFill   } 
+from "react-icons/pi";
+import { AiFillPushpin } 
+from "react-icons/ai";
+import { MdOutlineKeyboardDoubleArrowRight } 
+from "react-icons/md";
+
+const toolbarOneIcons = [
+  FaHome,
+  BsCursorFill,
+  FaHandPaper,
+  IoIosSearch,
+  Separator,
+  GiMoonOrbit,
+  FaArrowsAlt,
+  FaAnchor, 
+  Separator,
+  GiAnticlockwiseRotation,
+  GiCompanionCube,
+  Separator,
+  PiRectangleDuotone,
+  FaPenNib, 
+  PiTextTBold, 
+  Separator,
+  IoMdBrush , 
+  FaStamp,
+  BsFillEraserFill,
+  Separator,
+  FaPersonWalkingDashedLineArrowRight ,
+  Separator,
+  AiFillPushpin
+]
+
+---
+</script>
+
+
+  <div class="toolbar-one-panel">
+    {toolbarOneIcons.map((Icon, index) => (
+      <div class="i-icon" >
+        <Icon/>
+      </div>
+    ))}
+    <div class="right-side">
+      <div class="icon-title title">
+        <p>Default</p>
+        <PiListFill />
+      </div>
+      <p class="title">Review</p>
+      <p class="title">Learn</p>
+      <p class="title">Small Screen</p>
+      <p class="title">Standard</p>
+      <div class="i-icon">
+        <MdOutlineKeyboardDoubleArrowRight />
+
+      </div>
+      
+    </div>
+
+  </div>
+
+
+
+<style>
+.right-side{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 8px;
+  color: var(--gray);
+}
+
+p{
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  padding-right: 4px;
+}
+
+
+.toolbar-one-panel {
+  /* border: 1px solid var(--border-color); */
+  display: flex;
+  flex-direction: row;
+  background-color: var(--dark);
+}
+
+</style>

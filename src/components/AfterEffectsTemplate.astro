@@ -1,0 +1,125 @@
+---
+import MainMenu from './MainMenu.astro'
+import MainToolbar from './MainToolbar.astro'
+import WorkArea from './WorkArea.astro'
+---
+
+  <div id="after-effects-layout">
+    
+      
+    <MainMenu/>
+    <MainToolbar/>
+    <div class="toolbar-micro-panel">
+      <slot name="micro-toolbar"/>
+    </div>
+    <WorkArea/>
+    
+    <div class="toolbar-macro-panel">
+      <slot name="macro-toolbar"/>
+    </div>
+    <div class="timeline">
+      <div class="layers-panel">
+        <div class="layers-header"></div>
+        <div class="layers-search-bar"></div>
+        <div class="layers-options"></div>
+        <div class="layers-layers"></div>
+      </div>
+      <div class="clips-panel">
+        <div class="timeline"></div>
+        <div class="drop-zone"></div>
+      </div>
+    </div>
+  </div>
+
+
+<style >
+/* .after-effects-layout{
+  position: absolute;
+} */
+*{
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: white;
+}
+
+
+.icon{
+  color: blue;
+  padding: 7px 4px;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+
+#after-effects-layout {
+  position: absolute;
+  display: grid; 
+  grid-template-rows: 2fr 1fr 1fr 54% 1fr 21%;
+  width: 80vw;
+  height: 100vh;
+  border-radius:  50%;
+}
+
+
+
+
+
+.toolbar-micro-panel {
+  /* border: 1px solid var(--border-color); */
+
+}
+
+
+
+.toolbar-macro-panel {
+  border: 1px solid var(--border-color);
+
+}
+
+.timeline {
+  background: var(--dev-bg);
+  border: 1px solid var(--border-color);
+  opacity: var(--dev-opacity);
+}
+
+.layers-panel {
+  background: var(--dev-bg);
+  border: 1px solid var(--border-color);
+  opacity: var(--dev-opacity);
+}
+
+.layers-header {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.layers-search-bar {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.layers-options {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.layers-layers {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.clips-panel {
+  background: var(--dev-bg);
+  border: 1px solid var(--border-color);
+  opacity: var(--dev-opacity);
+}
+
+.drop-zone {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+</style>

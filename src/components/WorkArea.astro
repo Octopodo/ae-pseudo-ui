@@ -1,0 +1,93 @@
+---
+import SearchArea from './SearchArea.astro'
+import ProjectTools from './ProjectTools.astro'
+import Panel from './Panel.astro'
+---
+
+<div class="workarea">
+  <Panel title="Project">
+    <div class="project-grid">
+      <div class="project-info"></div>
+      <SearchArea/>
+      
+      <div class="project-items"></div>
+      <div class="project-tools"></div>
+    </div>
+      
+      <ProjectTools />
+
+  </Panel>
+  <!-- <div class="project-panel">
+  </div> -->
+  <div class="viewport-panel">
+    <div class="viewport-header"></div>
+    <div class="viewport-view-zone"></div>
+  </div>
+  <div class="info-panel"></div>
+</div>
+
+<style>
+.workarea {
+  /* background: var(--dev-bg); */
+  border: 1px solid var(--border-color);
+  /* opacity: var(--dev-opacity); */
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 64% 1fr;
+}
+
+.project-grid {
+
+  display: grid;
+  grid-template-rows: 35% 60% 1fr;
+  
+}
+
+.project-info {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.project-searchbar {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.project-items {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.project-drop-zone {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.project-tools {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.viewport-panel {
+  background: var(--dev-bg);
+  border: 1px solid var(--border-color);
+  opacity: var(--dev-opacity);
+}
+
+.viewport-header {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.viewport-view-zone {
+  background: var(--dev-bg);
+  opacity: var(--dev-opacity);
+}
+
+.info-panel {
+  background: var(--dev-bg);
+  border: 1px solid var(--border-color);
+  opacity: var(--dev-opacity);
+}
+</style>
