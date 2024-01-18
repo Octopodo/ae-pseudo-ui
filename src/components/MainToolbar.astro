@@ -1,4 +1,6 @@
 ---
+import Toolbar from './Toolbar.astro'
+
 import Separator from "./Separator.astro";
 import { FaStamp , FaHome, FaHandPaper, FaArrowsAlt, FaAnchor ,FaPenNib, FaPaintBrush    } 
 from "react-icons/fa";
@@ -48,11 +50,7 @@ const toolbarOneIcons = [
 
 
   <div class="toolbar-one-panel">
-    {toolbarOneIcons.map((Icon, index) => (
-      <div class="i-icon" >
-        <Icon/>
-      </div>
-    ))}
+    <Toolbar icons={toolbarOneIcons} />
     <div class="right-side">
       <div class="icon-title title">
         <p>Default</p>
@@ -92,7 +90,6 @@ p{
 
 
 .toolbar-one-panel {
-  /* border: 1px solid var(--border-color); */
   display: flex;
   flex-direction: row;
   background-color: var(--dark);

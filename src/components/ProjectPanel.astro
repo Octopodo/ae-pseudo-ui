@@ -1,0 +1,99 @@
+---
+import Panel  from './Panel.astro'
+import SearchArea from './SearchArea.astro'
+import ProjectTools from './ProjectTools.astro'
+import Separator from './Separator.astro'
+import Toolbar from './Toolbar.astro'
+import { BsPersonVideo2, BsFolderFill  } from "react-icons/bs";
+import { TfiVideoClapper } from "react-icons/tfi";
+import { HiRocketLaunch } from "react-icons/hi2";
+import { FaRegTrashCan } from "react-icons/fa6";
+
+const icons = [
+BsPersonVideo2,
+BsFolderFill ,
+TfiVideoClapper,  
+HiRocketLaunch,
+FaRegTrashCan
+]
+---
+
+
+<Panel title="Project">
+  <div class="project-grid">
+    <div class="project-info">
+      <div class="search-bar">
+        <SearchArea />
+      </div>
+    </div>
+    
+    
+    <div class="project-items">
+      <div class="project-items-header">
+        <div style=" width: 20px"></div>
+        <Separator color="--darker"/>
+        <small class="project-items-title">Name</small>
+      </div>
+      <div class="project-items-items" ></div>
+
+    </div>
+    <Toolbar icons={icons} iconClass="i-icon i-small project-icon"/>
+  </div>
+    
+
+
+</Panel>
+
+
+<style>
+  .project-grid {
+
+  display: grid;
+  grid-template-rows: 35% 60% 1fr;
+  height: 100%;
+  
+}
+
+
+.search-bar {
+  margin-bottom: 5px;
+}
+.project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.project-searchbar {
+  background: var(--dev-bg);
+
+}
+
+.project-items-title {
+  color: var(--light);
+  font-size: 0.7rem;
+  margin: auto 0;
+  top: 0;
+  bottom: 0;
+  margin-left: 6px;
+  font-weight: 100;
+}
+.project-items {
+  background: var(--darkish);
+
+}
+
+.project-items-header{
+  width: 100%;
+  height: 20px;
+  background-color: var(--dark);
+  border-top: 1px solid var(--darker);
+  border-bottom: 1px solid var(--darker);
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+</style>

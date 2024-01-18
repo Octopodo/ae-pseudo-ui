@@ -1,10 +1,12 @@
 :root {
   --light: #f5f5f5;
   --dark: #232323;
+  --darkish: #1c1c1c;
   --darker: #141414;
   --gray: #909090;
   --dark-gray: #5c5c5c;
   --hover-blue: #67a7c3;
+  --selected: #0a95ff;
   --border-color: #ff0000;
   --dev-bg: #7ec4b6;
 
@@ -33,6 +35,28 @@
   color: var(--hover-blue);
 }
 
+.i-small > * {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: auto 2px;
+}
+
+.panel-icon {
+  padding: 0;
+}
+.project-icon {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin: auto 0px;
+}
+
+.project-icon:hover {
+  background-color: var(--darkish);
+}
+.project-icon > * {
+  color: var(--light);
+}
 .title {
   margin: auto 3%;
   cursor: pointer;

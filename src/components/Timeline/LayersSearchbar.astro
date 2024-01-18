@@ -1,0 +1,46 @@
+---
+import SearchArea from "../SearchArea.astro"
+import Toolbar from "../Toolbar.astro"
+
+import { TiFlowMerge } from "react-icons/ti";
+import { FcWorkflow } from "react-icons/fc";
+import { MdFilterFrames } from "react-icons/md";
+import { HiCircleStack } from "react-icons/hi2";
+import { AiOutlineLineChart } from "react-icons/ai";
+const icons = [
+  FcWorkflow,
+  TiFlowMerge,
+  MdFilterFrames,
+  HiCircleStack,
+  AiOutlineLineChart
+]
+
+---
+<div class="container">
+  <div class="search-area">
+    <SearchArea />
+
+  </div>
+  <Toolbar icons={icons}/>
+</div>
+
+
+<style>
+
+.container {
+  width: 100%;
+  height: 100%;
+  
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.search-area{
+  top: 0;
+  bottom: 0;
+  margin: auto  0;
+  margin-left: 15%;
+  height: 70%;
+}
+
+</style>

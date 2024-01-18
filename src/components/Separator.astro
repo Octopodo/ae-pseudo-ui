@@ -2,25 +2,27 @@
 
 interface Props {
   horizontal?: boolean;
+  color?: string;
 }
 
-let { horizontal = false} = Astro.props;
+const { color = "--dark-gray", horizontal = false  } = Astro.props;
+const cssColor = `var(${color})`;
 ---
 
 <div class={ !horizontal ? 'vertical-line' : 'horizontal-line'}></div>
 
-<style>
+<style define:vars={{cssColor}}>
 .vertical-line {
-  width: 1px;
+  width: 2px;
   height: 100%;
-  background-color: #e5e5e5;
+  background-color: var(--cssColor);
   /* margin: 0 10px; */
 }
 
 .horizontal-line {
   width: 100%;
   height: 1px;
-  background-color: #e5e5e5;
+  background-color: var(--cssColor);
   margin: 10px 0;
 }
 </style>

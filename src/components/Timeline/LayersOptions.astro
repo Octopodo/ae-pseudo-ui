@@ -1,0 +1,116 @@
+---
+import Toolbar from "../Toolbar.astro"
+import Separator from "../Separator.astro"
+
+import { FaEye, FaUnlockAlt, FaDiagnoses   } 
+from "react-icons/fa";
+import { IoVolumeHigh } 
+from "react-icons/io5";
+import { GoDotFill } 
+from "react-icons/go";
+import { CiShoppingTag } 
+from "react-icons/ci";
+import { GiBeveledStar } 
+from "react-icons/gi";
+import { TbStairsDown,  TbKeyframes  } 
+from "react-icons/tb";
+import { HiCircleStack } 
+from "react-icons/hi2";
+import { CgDarkMode } 
+from "react-icons/cg";
+import { GrCube } 
+from "react-icons/gr";
+
+const layerIcons = [FaEye, IoVolumeHigh, GoDotFill, FaUnlockAlt]
+const tagIcons = [CiShoppingTag]
+const modeIcons = [FaDiagnoses, GiBeveledStar,TbStairsDown, TbKeyframes, HiCircleStack, CgDarkMode,
+GrCube]
+---
+<div class="container">
+  <div class="item layer-icons">
+    <Toolbar icons={layerIcons} iconClass="i-small "/>
+  </div>
+  <Separator color="--darker"/>
+
+  <div class="item">
+    <Toolbar icons={tagIcons} iconClass="i-small"/>
+
+  </div>
+  <Separator color="--darker"/>
+
+  <div class="title item hash">#</div>
+  <Separator color="--darker"/>
+  
+  <div class="title source">Source Name</div>
+  <Separator color="--darker"/>
+
+  <div class="item mode-icons">
+    <Toolbar icons={modeIcons} iconClass="i-small"/>
+  </div>
+  <Separator color="--darker"/>
+
+  <div class="title item ">Mode</div>
+  <Separator color="--darker"/>
+
+  <div class="title item ">T</div>
+  <Separator color="--darker"/>
+
+  <div class="title item ">Marker</div>
+  <Separator color="--darker"/>
+
+  <div class="title item ">Parent & Link</div>
+  <Separator color="--darker"/>
+
+</div>
+
+
+<style>
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  border-top: solid 2px var(--darker);
+  border-bottom: solid 2px var(--darker);
+  overflow: hidden;
+}
+
+.title{
+  color: var(--light);
+  font-size: 0.85em;
+  font-weight: 100;
+  margin: 0;
+  padding-right: 3.5%;
+  padding-left: 4px;
+  text-wrap: nowrap;
+}
+
+.item{
+  padding-left: 8px;
+  padding-right: auto;
+}
+
+.layer-icons{
+  width: 9%
+}
+
+.hash{
+  padding-right: 2%;
+}
+
+.source{
+  padding-right: 15%;
+}
+
+.mode-icons{
+  padding-right: 7%;
+}
+
+
+
+</style>

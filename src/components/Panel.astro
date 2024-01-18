@@ -1,31 +1,108 @@
 ---
 import {PiListFill} 
 from "react-icons/pi";
-const {title} = Astro.props;
+import { IoIosClose } 
+from "react-icons/io";
+import { FaUnlockAlt } 
+from "react-icons/fa";
+
+interface Props{
+  title?: string;
+  selected?: boolean;
+  lockIcon?: boolean;
+  closeIcon?: boolean;
+  noIcon?: boolean;
+  noHeader?: boolean;
+  preHeader?: any;
+  postHeader?: any;
+}
+const {title="", selected=true, lockIcon=false, closeIcon=false, noIcon=false, noHeader=false} = Astro.props;
 ---
 
 
-<div class="panel">
-  <div class="icon-title title">
-    <p>{title}</p>
-    <PiListFill />
+<div class="panel" >
+  { !noHeader &&( <div class="title-grid">
+    <div class="icon-title-block">
+      
+      <div class="icon-title ">
+        <slot name="pre-header"/>
+        {closeIcon && (
+          <div class="i-icon i-small panel-icon">
+            <IoIosClose />
+          </div>
+        )}
+        {lockIcon && (
+          <div class="i-icon i-small panel-icon">
+            <FaUnlockAlt />
+          </div>
+        )}
+        <p class="title">{title}</p>
+        {!noIcon && <PiListFill />}
+      </div>
+      <div class="selection" style={{display: selected ? "block" : "none"}}></div>
+    </div>
+
   </div>
+  )}
+
   <div class="content">
     <slot></slot>
   </div>
 </div>
 
+<script>
+  const panels = document.querySelectorAll('.panel');
+  panels.forEach(panel => {
+    panel.addEventListener('click', select);
+  });
+  function select(event) {
+    // Remove the 'active' class from all panels
+    document.querySelectorAll('.panel').forEach(panel => {
+      panel.classList.remove('active');
+    });
 
+    // Add the 'active' class to the clicked panel
+    event.currentTarget.classList.add('active');
+  }
+</script>
 <style>
+.no-padding{
+  padding: 0px;
+}
 .panel {
   height: 100%;
   width: 100%;
   display: grid;
   grid-template-rows: 25px 1fr;
-  background-color: var(--dark);
 
+  background-color: var(--dark);
+  box-sizing: border-box;
+  border: 1px solid var(--darker);
 }
 
+.panel.active{
+  border: 1px solid var(--selected);
+}
+
+.title-grid{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-left: 8px;
+}
+.title {
+  font-weight: 100;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  margin-left: 0;
+  text-wrap: nowrap;
+}
+.selection{
+  background-color: var(--light);
+  width: 100%;
+  /* margin-left: 8px; */
+  height: 2px;
+
+}
 
 
 </style>

@@ -1,0 +1,66 @@
+---
+import Panel from  '../Panel.astro'
+import LayersFooter from './LayersFooter.astro'
+import LayersSearchbar from './LayersSearchbar.astro'
+import LayersOptions from './LayersOptions.astro'
+import DropScrollbar from './DropScrollbar.astro'
+import DropFooter from './DropFooter.astro'
+---
+<Panel title=" (none) " closeIcon>
+  <div slot="pre-header" class="pre-title">Render Queue</div>
+  <div class="timeline">
+    <div class="layers-panel">
+      <LayersSearchbar />
+      <LayersOptions />
+      <div class="layers-layers"></div>
+      <LayersFooter />
+    </div>
+    <div class="clips-panel">
+      <DropScrollbar />
+      <div class="drop-zone"></div>
+      <DropFooter />
+    </div>
+  </div>
+
+</Panel>
+
+<style>
+  .pre-title {
+    font-weight: 100;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    margin-left: 0;
+    text-wrap: nowrap;
+    color: var(--gray);
+    margin: 0 2em;
+  }
+
+
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.layers-panel {
+  display: grid;
+  grid-template-rows: 30px 15px 1fr 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.clips-panel {
+
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr 15px;
+}
+
+.drop-zone {
+
+}
+</style>
+
+

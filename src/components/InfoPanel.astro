@@ -1,0 +1,59 @@
+---
+import Panel from './Panel.astro'
+const titles = [
+  'Info', 
+  'Preview',
+  'Align', 
+  'Tracker',
+  'Effects & Presets',
+  'Character',
+  'Paragraph',
+]
+---
+<script>
+  const miniPanels = document.querySelectorAll('.mini-panel')
+  miniPanels.forEach(panel => {
+    panel.addEventListener('click', select)
+  })
+  function select(event) {
+
+    event.stopPropagation();
+
+    document.querySelectorAll('.mini-panel').forEach(panel => {
+      panel.classList.remove('active');
+    });
+
+    event.currentTarget.classList.add('active');
+  }
+
+</script>
+<Panel title="" noIcon>
+  {titles.map(title => (
+    <div class="mini-panel">
+      <Panel noHeader>
+        <small class="title">{title}</small>
+      </Panel>
+    </div>
+  ))}
+
+</Panel>
+
+<style>
+
+.title {
+  position: relative;
+  display: block;
+  font-size: 0.8rem;
+  color: var(--gray);
+  font-weight: 300;
+  top: 0;
+  bottom: 0;
+  margin-top: 5%; 
+}
+
+.mini-panel {
+  height: 10%;
+  /* border-bottom: 1px solid var(--darker);
+  border-top: 1px solid var(--darker); */
+}
+</style>

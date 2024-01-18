@@ -1,0 +1,28 @@
+---
+interface Props{
+  icons?: any[]
+  iconClass?: string
+}
+const {icons=[], iconClass="i-icon"} =Astro.props 
+---
+</script>
+
+
+<div class="toolbar">
+  {icons.map((Icon, index) => (
+    <div class={iconClass} >
+      <Icon/>
+    </div>
+  ))}
+
+</div>
+
+<style>
+  .toolbar {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--dark);
+  }
+
+
+</style>
