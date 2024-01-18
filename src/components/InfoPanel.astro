@@ -12,19 +12,13 @@ const titles = [
 ---
 <script>
   const miniPanels = document.querySelectorAll('.mini-panel')
+  
   miniPanels.forEach(panel => {
-    panel.addEventListener('click', select)
+    panel.addEventListener('click', (event) => {
+      event.stopPropagation();
+    })
   })
-  function select(event) {
 
-    event.stopPropagation();
-
-    document.querySelectorAll('.mini-panel').forEach(panel => {
-      panel.classList.remove('active');
-    });
-
-    event.currentTarget.classList.add('active');
-  }
 
 </script>
 <Panel title="" noIcon>
