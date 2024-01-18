@@ -12,11 +12,15 @@
 
   --dev-opacity: 0.5;
 }
+* {
+  /* cursor: none; */
+  cursor: default;
+}
 
 .i-icon {
   padding: 0 6px;
   padding-top: 5px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .i-icon > * {
@@ -59,7 +63,7 @@
 }
 .title {
   margin: auto 3%;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-weight: 200;
 }
 .title:hover {
