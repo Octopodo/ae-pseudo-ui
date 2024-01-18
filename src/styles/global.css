@@ -28,7 +28,8 @@
   width: 1.1rem;
   height: 1.1rem;
 }
-.i-icon > *:hover {
+
+.i-icon:hover > * {
   color: var(--light);
 }
 .i-icon > *:selected {
