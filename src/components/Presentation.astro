@@ -1,0 +1,96 @@
+---
+import { FaGithub } from "react-icons/fa";
+const microToolbar = 'https://github.com/Octopodo/KT_AE_Toolbar';
+const macroToolbar = 'https://github.com/Octopodo/kt-toolbar-bolt';
+
+const marginRigth = '5%';
+---
+
+<div class="container">
+  <h1>
+    AFTER EFFECTS PSEUDO UI
+  </h1>
+  <p> A simple After Effects layout made in Html and Css to show how my  tools look on the interface</p>
+  <p> This layout is pseudo interactive so you can try click some buttons</p>
+  
+  <div class="repos">
+  
+    <div class="link">
+      <a href={microToolbar}>Micro Toolbar </a>
+      <div class="icon">
+        <FaGithub/>
+      </div>
+    </div>
+    <div class="link">
+      <a href={macroToolbar}>Macro Toolbar </a>
+      <div class="icon">
+        <FaGithub/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+h1, p{
+  text-wrap: pretty;
+  text-align: right;
+}
+
+h1{
+  font-size: 3.5em;
+}
+
+
+p{
+  font-size: 1.5em;
+  font-weight: 100;
+  color: var(--gray);
+  margin: 6% 0 6% 6% ;
+}
+
+a{
+  text-decoration: none;
+  padding-right: 8px;
+  cursor: pointer;
+}
+
+a:visited{
+  /* cursor: pointer; */
+  color: var(--selected-soft);
+}
+
+.container {
+  margin-right: 5%;
+  position: relative;
+  height: 88vh;
+}
+
+.link{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.icon{
+  cursor: pointer;
+  
+}
+
+.icon > * {
+  cursor: pointer;
+  
+}
+
+.repos {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 1.5em;
+}
+
+</style>

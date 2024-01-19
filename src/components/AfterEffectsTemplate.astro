@@ -1,32 +1,37 @@
 ---
-import MainMenu from './MainMenu.astro'
-import MainToolbar from './MainToolbar.astro'
-import WorkArea from './WorkArea.astro'
+import MainMenu from './Head/MainMenu.astro'
+import MainToolbar from './Head/MainToolbar.astro'
+import WorkArea from './Workarea/WorkArea.astro'
 import Timeline from './Timeline/Timeline.astro'
 import Panel from './Panel.astro'
 
 ---
 
-  <div id="after-effects-layout">
+  <div id="after-effects-layout" class="shadow">
     
       
     <MainMenu/>
 
     <MainToolbar/>
 
-    <Panel title="KT Micro Toolbar">
-      <div class="toolbar-micro-panel">
-        <slot name="micro-toolbar"/>
-      </div>
-    </Panel>
-
+    <div class="kt-toolbar">
+      <Panel title="KT Micro Toolbar" >
+        <div class="toolbar-micro-panel">
+          <slot name="micro-toolbar"/>
+        </div>
+      </Panel>
+    </div>
+    
     <WorkArea/>
+    
+    <div class="kt-toolbar">
+      <Panel title="KT Macro Toolbar">
+        <div class="toolbar-macro-panel">
+          <slot name="macro-toolbar"/>
+        </div>
+      </Panel>
 
-    <Panel title="KT Macro Toolbar">
-      <div class="toolbar-macro-panel">
-        <slot name="macro-toolbar"/>
-      </div>
-    </Panel>
+    </div>
     
     <Timeline/>
   </div>
@@ -46,7 +51,6 @@ import Panel from './Panel.astro'
   color: white;
 }
 
-
 .icon{
   color: blue;
   padding: 7px 4px;
@@ -56,23 +60,24 @@ import Panel from './Panel.astro'
 }
 
 #after-effects-layout {
-  position: absolute;
+  /* position: absolute; */
   display: grid; 
   grid-template-rows: 50px 28px  auto 54% auto 21%;
-  width: 80vw;
-  height: 90vh;
-  border-radius:  50%;
+  width: 72vw;
+  height: 80vh;
+  right: 1%;
+  margin-top: 1%;
+}
+
+.shadow {
+  box-shadow:-5px 10px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 
-.toolbar-micro-panel {
-
+.kt-toolbar{
+  position: relative;
+  z-index: 4;
+  box-shadow: 0px 0px 10px 5px rgba(92, 232, 11, 0.5);
 
 }
-
-.toolbar-macro-panel {
-  overflow: hidden;
-}
-
-
 </style>

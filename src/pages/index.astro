@@ -1,15 +1,14 @@
 ---
 import AfterEffectsTemplate from '../components/AfterEffectsTemplate.astro'
-const afterEffectsImage = 'ae-screenshot.png'
 const microToolbarUrl = 'https://octopodo.github.io/kt-micro-toolbar/'
 const macroToolbarUrl = 'https://octopodo.github.io/kt-macro-toolbar/'
+import Presentation from '../components/Presentation.astro'
 const maxWidth = '80%'
 import '../styles/global.css'
 ---
 
 <script>
 const afterEffctsLayout =  document.getElementById('after-effects-layout')
-const image = document.getElementById('after-effects-image')
 const microToolbar = document.querySelector('#micro-toolbar')
 const macroToolbar = document.querySelector('#macro-toolbar')
 
@@ -19,7 +18,6 @@ Promise.all(toolbars.map(iframe => new Promise(resolve => iframe.onload = resolv
   .then(() => {
     setTimeout(() => {
       afterEffctsLayout.classList.add('blur-in')
-      image.classList.add('blur-in')
       microToolbar.classList.add('fade-in', 'neon-flash')
       macroToolbar.classList.add('fade-in', 'neon-flash')
     }, 1000)
@@ -36,44 +34,50 @@ Promise.all(toolbars.map(iframe => new Promise(resolve => iframe.onload = resolv
 		<title>After Effakes UI</title>
 	</head>
 	<body>
+    <div class="presentation">
+      <Presentation/>
+    </div>
 
-		<img src={afterEffectsImage}  id="after-effects-image">
-    <AfterEffectsTemplate>
+    <AfterEffectsTemplate >
 
       <iframe slot="micro-toolbar" src={microToolbarUrl} id="micro-toolbar" class="toolbar micro-toolbar"></iframe>
       <iframe slot="macro-toolbar" src={macroToolbarUrl} id="macro-toolbar" class="toolbar macro-toolbar"></iframe>
     </AfterEffectsTemplate>
+
 	</body>
 </html>
 
 
 <style define:vars={{maxWidth}}>
-
-body {
-  background-color: var(--dark);
+*{
+  font-family: 'Roboto', sans-serif;
+  color: white;
 }
+body {
+  background-color: var(--darker);
+  display: grid;
+  grid-template-columns: 26vw auto;
+  height: 100%; 
+  
+}
+
 iframe{
   overflow: hidden;
 }
 
-#after-effects-image {
-  position: absolute;
-  display: block;
-  margin: 0 auto;
-  padding-top: 20px;
-  box-shadow: 4px 5px 10px  rgba(0,0,0,0.2);
-  width: var(--maxWidth);
-}
 
 .micro-toolbar {
+  position: relative;
   height: 50px;
-  top: 118px;
+  z-index: 100;
 }
 
 .macro-toolbar {
+  position: relative;
   height: 130px;
   top: 78%;
   border: none;
+  z-index: 100;
 }
 .toolbar {
   display: block;
@@ -94,9 +98,10 @@ iframe{
 }
 
 
-.neon-flash {
-  /* box-shadow: 0px 0px 10px 5px rgba(232, 140, 11, 0.3); */
 
+
+.neon-flash::after {
+  animation: neon-flash 2s ease-in-out infinite;
 }
 
 @-webkit-keyframes blur {
@@ -120,12 +125,13 @@ iframe{
 @keyframes neon-flash {
   0% {
 
+    opacity: 0%;
   }
   25% {
-    box-shadow: 0px 0px 10px 5px rgba(232, 140, 11, 0.9);
+    opacity: 100%;
   }
   100% {
-    box-shadow: 0px 0px 10px 5px rgba(232, 140, 11, 0.0);
+    Opacity: 0%;
   }
 }
 
