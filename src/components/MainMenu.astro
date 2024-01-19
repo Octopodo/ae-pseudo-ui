@@ -1,7 +1,32 @@
+---
+
+import {MdMinimize , MdOutlineRectangle } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
+
+
+
+const icons = [
+  MdMinimize ,
+  MdOutlineRectangle,
+  IoMdClose
+]
+---
+
 <div class="menu">
-  <div class="program-title">Adobe After Effects: KT Toolbars Demo</div>
-  <div class="menu-items">
-          
+  <div class="program-header">
+    <div class="program-name">
+      <img src="ae-icon.svg" class="ae-icon" alt="After Effects Icon">
+      <div class="program-title">Adobe After Effects: KT Toolbars Demo</div>
+    </div>
+    <div class="program-buttons">
+      {icons.map((Icon) => (
+        <div class="header-icon">
+          <Icon/>
+        </div>
+    ))}
+    </div>
+  </div>
+  <div class="menu-items">  
     <p class="menu-item">File</p>
     <p class="menu-item">Edit</p>
     <p class="menu-item">Composition</p>
@@ -21,6 +46,38 @@
   background: white;
 }
 
+.program-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.program-name {
+  display: flex;
+  flex-direction: row;
+}
+
+.program-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-icon > *{
+  color: var(--dark);
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 2px 10px;
+}
+
+.header-icon:hover {
+  background: var(--hover-blue);
+}
+
+.ae-icon{
+  width: 18px;
+  height: 18px;
+  margin: 5px 5px;
+}
 .program-title {
   color: black;
   display: flex;

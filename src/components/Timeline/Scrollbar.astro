@@ -1,0 +1,55 @@
+---
+interface Props{
+  mini?: boolean;
+}
+const {mini=false} = Astro.props;
+const height = mini ? '8px': '15px';
+const thumbHeight = mini ? '10px': '16px';
+const topRadius = mini ? '10px': '50px';
+const bottomRadius = mini ? '4px': '50px';
+const marginTop = mini ? '0px': '0px';
+
+---
+
+<div class="scroll">
+  <div class="thumb left"></div>
+  <div class="bar"></div> 
+  <div class="thumb right"></div>
+</div>
+
+
+<style define:vars={{height, thumbHeight, topRadius, bottomRadius, marginTop}}>
+
+.scroll{
+  display: flex;	
+  flex-direction: row;
+  width: 99%;
+  margin: auto 6px;
+}
+.bar{
+  width: 100%;
+  height: var(--height);
+  background-color: var(--dark-gray);
+  margin-top: var(--marginTop);
+  border: solid 1px var(--darker);
+}
+.thumb {
+  height: var(--thumbHeight);
+  width: 5px;
+  background: var(--selected);
+  border-radius: 2px;
+  top: 0;
+  left: 0;
+}
+
+.left {
+  border-top-left-radius: var(--topRadius);
+  border-bottom-left-radius: var(--bottomRadius);
+}
+
+.right {
+  border-top-right-radius: var(--topRadius);
+  border-bottom-right-radius: var(--bottomRadius);
+}
+</style>
+

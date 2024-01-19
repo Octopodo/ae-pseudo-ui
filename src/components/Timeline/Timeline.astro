@@ -43,6 +43,10 @@ import DropFooter from './DropFooter.astro'
   width: 100%;
 }
 
+.layers-layers {
+  border-right:  1px  solid var(--darker);
+  overflow: visible;
+}
 .layers-panel {
   display: grid;
   grid-template-rows: 30px 15px 1fr 15px;
@@ -56,10 +60,12 @@ import DropFooter from './DropFooter.astro'
   height: 100%;
   display: grid;
   grid-template-rows: 50px 1fr 15px;
+  
 }
 
 .drop-zone {
-
+  border-left: 10px solid var(--dark);
+  background-color: #333333;
 }
 </style>
 

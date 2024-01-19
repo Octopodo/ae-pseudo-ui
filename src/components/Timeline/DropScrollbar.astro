@@ -1,6 +1,36 @@
 ---
+import Scrollbar from './Scrollbar.astro'
+
+
+function generateTimeArray(count) {
+  const times = [];
+  let t = 0;
+  for (let i = 0; i <= count; i ++) {
+    const minutes = Math.floor(t / 60);
+    const seconds = t % 60;
+    const time = minutes > 0 ? `${minutes}:` : '';
+    times.push(time + seconds.toString().padStart(2, '0') + 's');
+    t += 5;
+  }
+  return times;
+}
+
+const times = generateTimeArray(18);
+
 ---
 <div class="container">
+  <Scrollbar mini/>
+  <div class="times">
+    {times.map(time => (
+      <div class="time-bar">
+        <div class="time">{time}</div>  
+        <div class="bar">l</div>
+      </div>
+    ))}
+  </div>
+  <div class="big-scroolbar">
+    <Scrollbar />
+  </div>
 
 </div>
 
@@ -10,6 +40,32 @@
 .container {
   width: 100%;
   height: 100%;
-  
+  position: relative;
+}
+.big-scroolbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.times {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-top: 3px;
+}
+
+.time-bar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 10px;
+  height: 30px;
+  font-size: 0.6rem;
+  color: var(--dark-gray)
+
 }
 </style>
